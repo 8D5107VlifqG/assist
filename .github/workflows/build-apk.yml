@@ -29,6 +29,9 @@ jobs:
       - name: Set minimum Android version to 6 (API 23)
         run: sed -i 's/minSdkVersion = .*/minSdkVersion = 23/' android/variables.gradle
 
+      - name: Generate app icons
+        run: npx --yes @capacitor/assets@3.0.5 generate --android
+
       - name: Sync web files
         run: npx cap sync android
 
